@@ -1,0 +1,77 @@
+section{
+	width: 1024px;
+	margin: 0 auto;
+	box-shadow: 0px 0px 10px 0px #000;
+	padding: 10px;
+}
+
+li{
+	list-style-type: none;
+}
+
+.container{
+	margin-bottom: 10px;
+}
+
+.ExpandWindow{
+	background: #eee;
+	border-radius: 10px;
+	padding: 10px;
+	margin-top: 10px;
+	border:1px solid #ddd;
+	box-shadow: 0px 2px 6px 2px #ddd;
+}
+
+.addBtn{
+	margin-top:10px;
+}
+
+.balance{
+	border-radius: 10px;
+	background: #f4f4f4;
+	padding: 10px;
+	margin-bottom: 20px;
+}
+
+	.balance input{
+		border: 0;
+		background: #f4f4f4;
+		text-align: right;
+	}
+
+	.balance h4{
+		margin-top: 0;
+		text-align: center;
+	}
+
+	.balance label{
+		min-width: 300px;
+	}
+
+	.balance li{
+		padding: 3px 10px;
+	}
+
+		.balance li:hover,
+		.balance li:hover input{
+			background: #fff;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+
+.total{
+	margin-top: 50px;
+}
+
+.negative{
+	color: red;
+}
+
+.positive{
+	color: green;
+}
+
+.glyphicon{
+	font-family: inherit;
+}
+

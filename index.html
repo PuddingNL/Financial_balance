@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en" ng-app="balance">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="css/main.css">
+	<script src="lib/angular/angular.min.js"></script>
+	<script src="js/app.js"></script>
+	<script src="js/services.js"></script>
+	<script src="js/controllers.js"></script>
+</head>
+<body ng-controller="balanceController">
+	<section class="container">
+		<h1>Euro-Balance</h1>
+		<article class="col-md-6">
+			<div class="balance">
+				<h4>Inkomsten</h4>
+				<ul class="balanceColumn">
+					<li ng-repeat="income in incomes">
+						<label>{{income.label}}</label><input type="text" ng-model="income.input" class="pull-right">
+					</li>
+				</ul>
+			</div>
+			<p>Totale inkomsten: € {{totalIncomes()}}</p>
+			<button type="button" class="btn btn-success btn-lg" ng-click="showAddIncome = !showAddIncome" ng-hide="showAddIncome">
+			  <span class="glyphicon glyphicon-plus" > Inkomen</span>
+			</button>
+			<div ng-show="showAddIncome" class="ExpandWindow">
+				<button class="close" ng-click="showAddIncome = !showAddIncome">&times;</button>
+				<label for="income.label">Inkomsten</label>
+				<input  ng-model="income.label" class="form-control" placeholder="Plaats hier uw inkomsten"><br>
+				<label for="income.input">Bedrag</label>
+				<div class="input-group">
+					<span class="input-group-addon">€</span>
+					<input  ng-model="income.input" class="form-control">
+				</div>
+				<button class="addBtn btn btn-success btn-block" ng-click="addIncome(income.label,income.input)">Voeg inkomsten toe</button>
+			</div>
+		</article>
+		<article class="col-md-6">
+			<div class="balance">
+				<h4>Uitgaven</h4>
+				<ul class="balanceColumn">
+					<li ng-repeat="expense in expences">
+						<label>{{expense.label}}</label><input type="text"  ng-model="expense.input" class="pull-right">
+					</li>
+				</ul>
+			</div>
+			<p>Totale uitgaven: € {{totalExpences()}}</p>
+			<button type="button" class="btn btn-success btn-lg" ng-click="showAddExpense = !showAddExpense" ng-hide="showAddExpense">
+			  <span class="glyphicon glyphicon-plus"> Uitgaven</span>
+			</button>
+			<div ng-show="showAddExpense" class="ExpandWindow">
+				<button class="close" ng-click="showAddExpense = !showAddExpense">&times;</button>
+				<label for="expense.label">Uitgaven</label>
+				<input  ng-model="expense.label" class="form-control" placeholder="Plaats hier uw uitgaven"><br>
+				<label for="expense.input">Bedrag</label>
+				<div class="input-group">
+					<span class="input-group-addon">€</span>
+					<input ng-model="expense.input" class="form-control">
+				</div>
+				<button class="addBtn btn btn-success btn-block" ng-click="addExpense(expense.label,expense.input)">Voeg uitgaven toe</button>
+			</div>
+		</article>
+		<article class="col-md-6"></article>
+		<article class="col-md-6 total">
+			<h3 ng-class="{'negative': (totalBalance() < 0),'positive': (totalBalance() > 0)}">
+				<span>Totaal:</span>
+				<span class="pull-right">€ {{totalBalance()}}</span>
+			</h3>
+		</article>
+		
+	</section>
+
+
+
+	
+</body>
+</html>
